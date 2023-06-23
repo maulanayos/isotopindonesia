@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin="">
+</script>
+    <title>Helo</title>
+    <style>
+      h1{
+        font-size: 40px;
+        font-family: Helvetica;
+        font-weight: normal;
+        color: rgb(0, 0, 0);
+        text-align: center;
+      }
+      #banner {
+        width:100%;
+        height:80px;
+      }
+    </style>
+  </head>
+
+  <body>
+    
+    <img id="banner" src = "https://isotopindonesia-1.maulanayos.repl.co/static/Meteorologi (2).png">
+    <h1>God help me make this works</h1>
+    <div id="map" style="width: 100%; height: 80vh;"></div>
+    <script>
+      var southWest = L.latLng(-11.1485, 95.098),
+        northEast = L.latLng(45.902, 141.152),
+        bounds = L.latLngBounds(southWest, northEast);
+      const map = L.map('map',{
+        minZoom : 5}).setView([-0.7893, 120], 5);
+      map.setMaxBounds(map.getBounds(southWest, northEast));
+      const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+	maxZoom: 17,
+	attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+    });
+
+    OpenTopoMap.addTo(map);
+          var PosPolusiUdaraKemayoran = L.marker([-6.15559,106.84]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 1.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"Pos Polusi Udara Kemayoran").addTo(map);
+    //PosPolusiUdaraKemayoran.click = <img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 1.png'  width='300px'>
+    PosPolusiUdaraKemayoran.on('click',function(){window.location = (this.click);});
+    L.marker([-6.88356,107.59733]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 2.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaGeof Bandung").addTo(map);
+    L.marker([-6.7,106.85]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 3.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"Pos Polusi Udara Cibeureum").addTo(map);
+    L.marker([-0.54549,100.29786]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 4.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Padang Pariaman").addTo(map);
+    L.marker([3.62114,98.71485]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 5.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Deli Serdang").addTo(map);
+    L.marker([0.45924,101.44743]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 6.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Sultan Syarif Kasim II").addTo(map);
+    L.marker([0.075,109.19]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 7.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Mempawah").addTo(map);
+    L.marker([-0.2505,100.3823]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 8.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"Stasiun GAW Bukit Kototabang").addTo(map);
+    L.marker([-1.63368,103.64]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 9.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Sultan Thaha").addTo(map);
+    L.marker([-2.92732,104.77197]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 10.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Palembang").addTo(map);
+    L.marker([-3.8652,102.3119]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 11.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Bengkulu").addTo(map);
+    L.marker([-5.16,105.11]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 12.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Radin Inten II").addTo(map);
+    L.marker([-7.3846,112.7833]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 13.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Juanda").addTo(map);
+    L.marker([-0.14206,109.45]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 14.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Supadio").addTo(map);
+    L.marker([-3.46225,114.84]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 15.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Banjarbaru").addTo(map);
+    L.marker([-0.48,117.16]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 16.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Temindung").addTo(map);
+    L.marker([-2.22,113.95]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 17.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Tjilik Riwut").addTo(map);
+    L.marker([1.4434,124.8389]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 18.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaGeof Winangun").addTo(map);
+    L.marker([1.54575,124.9234]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 19.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Sam Ratulangi").addTo(map);
+    L.marker([-4.9308,119.572]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 20.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Maros").addTo(map);
+    L.marker([-0.91589,119.90554]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 21.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Mutiara").addTo(map);
+    L.marker([-8.75,115.17]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 22.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Ngurah Rai").addTo(map);
+    L.marker([-8.75277,116.24982]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 23.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet BI Lombok").addTo(map);
+    L.marker([-10.1678,123.67039]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 24.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Eltari").addTo(map);
+    L.marker([-5.47,122.62]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 25.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Beto Ambari").addTo(map);
+    L.marker([-2.51461,140.70431]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 26.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaGeof Angkasapura").addTo(map);
+    L.marker([-6.5,106.75]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 27.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Bogor").addTo(map);
+    L.marker([-7.9008,112.5979]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 28.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Malang").addTo(map);
+    L.marker([-6.1,106.38]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 29.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaGeof Tangerang").addTo(map);
+    L.marker([-6.9847,110.3812]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 30.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Semarang").addTo(map);
+    L.marker([1.54585,124.9233]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 31.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Minahasa Utara").addTo(map);
+    L.marker([3.5397,98.64]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 32.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"Balai Besar Wilayah 1 Medan").addTo(map);
+    L.marker([-7.82,110.3]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 33.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaGeof Yogyakarta").addTo(map);
+    L.marker([-6.26151,106.75084]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 34.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Tangerang Selatan").addTo(map);
+    L.marker([-6.86817,109.12103]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 35.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Tegal").addTo(map);
+    L.marker([3.2,106.25]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 36.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Tarempa").addTo(map);
+    L.marker([0.556,123.14]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 37.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Tilongkabila").addTo(map);
+    L.marker([-10.13861,123.66722]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 38.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Kupang").addTo(map);
+    L.marker([-3.55074,118.98054]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 39.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Majene").addTo(map);
+
+
+    var acehbesar = L.marker([5.404,95.464]).addTo(map).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 40.png'  width='300px'> <br>"+"<b>Stasiun Hujan</b><br>"+"StaKlim Aceh Besar");
+    acehbesar.on('mouseover',function(ev) {acehbesar.openPopup()});
+    acehbesar.url = 'Home/acehbesar';
+    acehbesar.on('click', function (){
+        window.location = (this.url);});
+
+    L.marker([-5.17236,105.18]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 41.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Pesawaran").addTo(map);
+    L.marker([-8.63627,116.17094]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 42.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Lombok Barat").addTo(map);
+    L.marker([-1.6019,103.48444]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 43.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Muaro Jambi").addTo(map);
+    L.marker([-8.341,114.6176]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 44.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Jembrana").addTo(map);
+    L.marker([-0.79355,100.28917]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 45.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Minangkabau").addTo(map);
+    L.marker([-6.11185,106.11]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 46.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Serang").addTo(map);
+    L.marker([0.6385,122.8525]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 47.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Djalaluddin").addTo(map);
+    L.marker([-3.25,128.4]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 48.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Seram Bagian Barat").addTo(map);
+    L.marker([-7.731,110.354]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 49.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaKlim Mlati").addTo(map);
+    L.marker([-0.89118,131.28575]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 50.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Seigun").addTo(map);
+    L.marker([-1.26,116.9]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 51.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Sepinggan").addTo(map);
+    
+    L.marker([-7.7189,109.0149]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 52.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Cilacap").addTo(map);
+    
+    var malikussaleh = L.marker([5.22869,96.94749]).addTo(map).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 53.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"StaMet Malikussaleh");
+    malikussaleh.on('mouseover',function(ev) {malikussaleh.openPopup()});
+    L.marker([-0.86,131.26]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 54.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"Stasiun GAW Sorong").addTo(map);
+    L.marker([-2.59231,140.16792]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 55.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"Staklim Jayapura").addTo(map);
+    L.marker([-2.518,106.422]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 56.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"Staklim Koba").addTo(map);
+    L.marker([0.407,101.217]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 57.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"Staklim Tambang").addTo(map);
+    L.marker([-4.056,122.449]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 58.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"Staklim Ranomeeto").addTo(map);
+    L.marker([-5.14,119.45]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 59.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"BMG STASIUN MAKASAR").addTo(map);
+    L.marker([-0.12,100.19]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 60.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"BMG STASIUN GAW BUKIT KOTOTABANG").addTo(map);
+    L.marker([-3.45,114.58]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 61.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"BMG STASIUN BANJARBARU").addTo(map);
+    L.marker([1.53,124.92]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 62.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"BMG STASIUN SAM RATULANGI").addTo(map);
+    L.marker([-0.58,122.78]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 63.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"BMG STASIUN GORONTALO").addTo(map);
+    L.marker([-3.7,128.08]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 64.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"BMG STASIUN PATTIMURA").addTo(map);
+    L.marker([1.5,124.9]).bindPopup("<img src='https://isotopindonesia-1.maulanayos.repl.co/static/plot1/stasiun_n 65.png'  width='300px'> <br>" +"<b>Stasiun Hujan</b><br>"+"BMG STASIUN KAYUWATU").addTo(map);
+
+    </script>
+
+    <h2>
+      the table will be here
+    </h2>
+  </body>
+</html>
